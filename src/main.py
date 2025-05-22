@@ -18,10 +18,30 @@ def helpC(command = None):
             else:
                 print('No such command!')   
 
+def print_shape():
+    # Store each row with preserved spacing
+    rows = [
+        "     /\\  \\         /\\  \\         /\\__\\         /\\  \\         /\\  \\         /\\  \\         /\\__\\     /\\  \\    ",
+        "    /::\\  \\       /::\\  \\       /:/  /         \\:\\  \\       /::\\  \\       /::\\  \\       /:/  /    /::\\  \\   ",
+        "   /:/\\ \\  \\     /:/\\:\\  \\     /:/__/           \\:\\  \\     /:/\\:\\  \\     /:/\\:\\  \\     /:/  /    /:/\\ \\  \\  ",
+        "  _\\:\\~\\ \\  \\   /:/  \\:\\  \\   /::\\  \\ ___       /::\\  \\   /:/  \\:\\  \\   /:/  \\:\\  \\   /:/  /    _\\:\\~\\ \\  \\ ",
+        " /\\ \\:\\ \\ \\__\\ /:/__/ \\:\\__\\ /:/\\:\\  /\\__\\     /:/\\:\\__\\ /:/__/ \\:\\__\\ /:/__/ \\:\\__\\ /:/__/    /\\ \\:\\ \\ \\__\\",
+        " \\:\\ \\:\\ \\/__/ \\:\\  \\  \\/__/ \\/__\\:\\/\\/  /    /:/  \\/__/ \\:\\  \\ /:/  / \\:\\  \\ /:/  / \\:\\  \\    \\:\\ \\:\\ \\/__/",
+        "  \\:\\ \\:\\__\\    \\:\\  \\            \\::/  /    /:/  /       \\:\\  /:/  /   \\:\\  /:/  /   \\:\\  \\    \\:\\ \\:\\__\\  ",
+        "   \\:\\/:/  /     \\:\\  \\           /:/  /     \\/__/         \\:\\/:/  /     \\:\\/:/  /     \\:\\  \\    \\:\\/:/  /  ",
+        "    \\::/  /       \\:\\__\\         /:/  /                     \\::/  /       \\::/  /       \\:\\__\\    \\::/  /   ",
+        "     \\/__/         \\/__/         \\/__/                       \\/__/         \\/__/         \\/__/     \\/__/    "
+    ]
+    
+    # Print each row with explicit newline
+    for row in rows:
+        print(row)
+
 commandList.append(("help", helpC, "Prints info about commands"))
-     
+commandList.append(("logo", print_shape, "Prints the logo of this tool"))     
 
 def main():
+
     command = input("> ")
 
     for i in commandList:
@@ -33,6 +53,10 @@ def main():
         print("No sutch command! Try help.")
 
 if __name__ == "__main__":
-    while True:
-            main()
-    
+    print_shape()
+    try:
+        while True:
+                main()
+    except KeyboardInterrupt:
+        print("Bye!")
+        quit()
