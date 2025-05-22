@@ -1,9 +1,9 @@
 import ytDownload  
+import json
 
 commandList = [
     ("download", ytDownload.download, "Downloads a YT vid"),
 ]
-
 
 def helpC(command = None):
     if command == None:
